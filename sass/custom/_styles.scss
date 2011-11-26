@@ -10,3 +10,23 @@ header h1 a {
     padding-left: 100px;
   }
 }
+
+.subscription {
+  padding: 0;
+}
+
+a[rel=subscribe-rss] {
+  display:block;
+  width: 29px;
+  padding: 29px 0 0 0;
+  overflow: hidden;
+  background: transparent url("/images/rss.png") 0 0 no-repeat;
+  height: 0px !important;
+  height /**/:29px;
+}
+
+
+
+
+
+
