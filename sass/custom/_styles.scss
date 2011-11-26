@@ -1,7 +1,15 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
-header h1 a {
+
+body {
+  @media only screen and (min-width: 992px) {
+    overflow-y: scroll;
+  }
+}
+
+
+body > header h1 a {
   background: transparent url(/images/logo-50.png) 0 50% no-repeat;
   padding-left: 60px;
 
