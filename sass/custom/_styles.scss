@@ -1,2 +1,12 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+
+header h1 a {
+  background: transparent url(/images/logo-50.png) 0 50% no-repeat;
+  padding-left: 60px;
+
+  @media only screen and (min-width: 992px) {
+    background: transparent url(/images/logo-80.png) 0 50% no-repeat;
+    padding-left: 100px;
+  }
+}
