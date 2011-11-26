@@ -17,12 +17,20 @@ header h1 a {
 
 a[rel=subscribe-rss] {
   display:block;
-  width: 29px;
-  padding: 29px 0 0 0;
   overflow: hidden;
-  background: transparent url("/images/rss.png") 0 0 no-repeat;
+  background-repeat: no-repeat;
+  width: 24px;
+  padding: 24px 0 0 0;
   height: 0px !important;
-  height /**/:29px;
+  background-image: url("/images/rss-24.png");
+  height /**/:24px;
+
+  @media only screen and (min-width: 992px) {
+    width: 29px;
+    padding: 29px 0 0 0;
+    background-image: url("/images/rss-29.png");
+    height /**/:29px;
+  }
 }
 
 
