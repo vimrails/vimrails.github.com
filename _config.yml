@@ -3,9 +3,8 @@
 # ----------------------- #
 
 url: http://vimrails.github.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: Vimrails
+subtitle: A small blog primarily about vim, and secondarily about rails.
 simple_search: http://google.com/search
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
