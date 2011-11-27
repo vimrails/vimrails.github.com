@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How to add a post - Vimrails</title>
+  <meta name="author" content="">
+
+  
+  <meta name="description" content="On this post I&#8217;ll teach you how to post in vimrails. Prerequisites Execute this: 1
+bundle exec rake preview You should be seeing the blog in &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://vimrails.github.com/blog/2011/11/26/how-to-add-a-post">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Vimrails" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Vimrails</a></h1>
+  
+    <h2>A small blog primarily about vim, and secondarily about rails.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:vimrails.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How to Add a Post</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-26T21:08:00+01:00" pubdate data-updated="true">Nov 26<span>th</span>, 2011</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>On this post I&#8217;ll teach you how to post in vimrails.</p>
+
+<!--more-->
+
+
+<h2>Prerequisites</h2>
+
+<p>Execute this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should be seeing the blog in <a href="http://localhost:4000">http://localhost:4000</a>. If you are not, make sure you have completed the <a href="blog/2011/11/26/the-initial-setup/">initial setup</a></p>
+
+<h2>Merge previous source (not master!) changes</h2>
+
+<p>There is a possibility that some other people might have done work in the repo before you. Merge them in your current branch with</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git pull --rebase origin source</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(Notice: origin source, not origin master)</p>
+
+<h2>Create a new post</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake 'new_post[The title of your post]'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command will create a file inside ´source/_posts´and tell you its path. Edit that file:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim source/_posts/yyyy-mm-dd-the-title-of-your-post.markdown</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Add the author and categories</h2>
+
+<p>The file will look like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---
+</span><span class='line'>layout: post
+</span><span class='line'>title: "The title of your post"
+</span><span class='line'>date: yyyy-MM-dd mm:ss
+</span><span class='line'>comments: true
+</span><span class='line'>categories:
+</span><span class='line'>---</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You will want to add one or more categories to the post. To add one, simply add its identifier - for example <code>plugins</code>, right after the <code>categories:</code> label.</p>
+
+<p>You also want to add an <code>author</code> section using the author id that you used when you edited the authors page. The yaml heading will look like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---
+</span><span class='line'>layout: post
+</span><span class='line'>title: "The title of your post"
+</span><span class='line'>date: yyyy-MM-dd mm:ss
+</span><span class='line'>comments: true
+</span><span class='line'>categories: plugins
+</span><span class='line'>author: your-author-id
+</span><span class='line'>---</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Edit the body</h2>
+
+<p>The body can be written in markdown. Here&#8217;s a short syntax guide:</p>
+
+<pre><code>This is the intro text. On the post preview, it will appear followed by a "Read on" button.
+
+&lt;!--more--&gt;
+
+This is the full text. It doesn't appear in the previews, only on the full post view. The &lt;!--more--&gt; comment is optional. If you don't include it, the full article will be printed on the indexes and previews.
+
+## h2 title
+
+### h3 title
+
+A paragraph.
+
+Another paragraph. This one has [a link to google](http://google.com).
+
+* A list
+* Of
+* Items
+
+``` ruby
+# This is ruby code
+class Person
+  def foo
+  end
+end
+```
+
+``` vim
+# This is vim script
+```
+</code></pre>
+
+<p>More resources:</p>
+
+<ul>
+<li>The <a href="http://daringfireball.net/projects/markdown/syntax">markdown syntax guide</a></li>
+<li>The <a href="http://octopress.org/docs/">octopress docs</a></li>
+</ul>
+
+
+<h2>Test the new post</h2>
+
+<p>Execute this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should be seeing the new blog post in <a href="http://localhost:4000">http://localhost:4000</a>. If you are not, maybe there is a syntax error in your code. You can get syntax errors by executing this command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Deploy</h2>
+
+<p>Same as when deploying the authors page:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -m 'Added article'
+</span><span class='line'>git push origin source
+</span><span class='line'>bundle exec rake gen_deploy</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span
+    class="fn"><a href="/authors/#kikito">kikito</a></span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-26T21:08:00+01:00" pubdate data-updated="true">Nov 26<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/howtos/'>howtos</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://vimrails.github.com/blog/2011/11/26/how-to-add-a-post/" data-via="" data-counturl="http://vimrails.github.com/blog/2011/11/26/how-to-add-a-post/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/11/26/the-initial-setup/" title="Previous Post: The initial setup">&laquo; The initial setup</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/11/26/how-to-add-a-post/">How to add a post</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/26/the-initial-setup/">The initial setup</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+Copyright &copy; 2011 - <a href="/authors">Authors</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'vimrails';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://vimrails.github.com/blog/2011/11/26/how-to-add-a-post/';
+        var disqus_url = 'http://vimrails.github.com/blog/2011/11/26/how-to-add-a-post/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

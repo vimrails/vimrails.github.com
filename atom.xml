@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Vimrails]]></title>
+  <link href="http://vimrails.github.com/atom.xml" rel="self"/>
+  <link href="http://vimrails.github.com/"/>
+  <updated>2011-11-27T18:52:33+01:00</updated>
+  <id>http://vimrails.github.com/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to add a post]]></title>
+    <link href="http://vimrails.github.com/blog/2011/11/26/how-to-add-a-post/"/>
+    <updated>2011-11-26T21:08:00+01:00</updated>
+    <id>http://vimrails.github.com/blog/2011/11/26/how-to-add-a-post</id>
+    <content type="html"><![CDATA[<p>On this post I&#8217;ll teach you how to post in vimrails.</p>
+
+<!--more-->
+
+
+<h2>Prerequisites</h2>
+
+<p>Execute this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should be seeing the blog in <a href="http://localhost:4000">http://localhost:4000</a>. If you are not, make sure you have completed the <a href="blog/2011/11/26/the-initial-setup/">initial setup</a></p>
+
+<h2>Merge previous source (not master!) changes</h2>
+
+<p>There is a possibility that some other people might have done work in the repo before you. Merge them in your current branch with</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git pull --rebase origin source</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(Notice: origin source, not origin master)</p>
+
+<h2>Create a new post</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake 'new_post[The title of your post]'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command will create a file inside ´source/_posts´and tell you its path. Edit that file:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim source/_posts/yyyy-mm-dd-the-title-of-your-post.markdown</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Add the author and categories</h2>
+
+<p>The file will look like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---
+</span><span class='line'>layout: post
+</span><span class='line'>title: "The title of your post"
+</span><span class='line'>date: yyyy-MM-dd mm:ss
+</span><span class='line'>comments: true
+</span><span class='line'>categories:
+</span><span class='line'>---</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You will want to add one or more categories to the post. To add one, simply add its identifier - for example <code>plugins</code>, right after the <code>categories:</code> label.</p>
+
+<p>You also want to add an <code>author</code> section using the author id that you used when you edited the authors page. The yaml heading will look like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---
+</span><span class='line'>layout: post
+</span><span class='line'>title: "The title of your post"
+</span><span class='line'>date: yyyy-MM-dd mm:ss
+</span><span class='line'>comments: true
+</span><span class='line'>categories: plugins
+</span><span class='line'>author: your-author-id
+</span><span class='line'>---</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Edit the body</h2>
+
+<p>The body can be written in markdown. Here&#8217;s a short syntax guide:</p>
+
+<pre><code>This is the intro text. On the post preview, it will appear followed by a "Read on" button.
+
+&lt;!--more--&gt;
+
+This is the full text. It doesn't appear in the previews, only on the full post view. The &lt;!--more--&gt; comment is optional. If you don't include it, the full article will be printed on the indexes and previews.
+
+## h2 title
+
+### h3 title
+
+A paragraph.
+
+Another paragraph. This one has [a link to google](http://google.com).
+
+* A list
+* Of
+* Items
+
+``` ruby
+# This is ruby code
+class Person
+  def foo
+  end
+end
+```
+
+``` vim
+# This is vim script
+```
+</code></pre>
+
+<p>More resources:</p>
+
+<ul>
+<li>The <a href="http://daringfireball.net/projects/markdown/syntax">markdown syntax guide</a></li>
+<li>The <a href="http://octopress.org/docs/">octopress docs</a></li>
+</ul>
+
+
+<h2>Test the new post</h2>
+
+<p>Execute this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should be seeing the new blog post in <a href="http://localhost:4000">http://localhost:4000</a>. If you are not, maybe there is a syntax error in your code. You can get syntax errors by executing this command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Deploy</h2>
+
+<p>Same as when deploying the authors page:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -m 'Added article'
+</span><span class='line'>git push origin source
+</span><span class='line'>bundle exec rake gen_deploy</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The initial setup]]></title>
+    <link href="http://vimrails.github.com/blog/2011/11/26/the-initial-setup/"/>
+    <updated>2011-11-26T00:00:00+01:00</updated>
+    <id>http://vimrails.github.com/blog/2011/11/26/the-initial-setup</id>
+    <content type="html"><![CDATA[<p>Read this if you want to start writing on vimrails.</p>
+
+<!--more-->
+
+
+<h2>Prerequisites</h2>
+
+<p>You need to install <a href="http://git-scm.com/">git</a> and <a href="http://beginrescueend.com/">rvm</a>. That is not explained on this guide.</p>
+
+<p>Make sure that you have ruby 1.9.2 installed:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm install 1.9.2 && rvm use 1.9.2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You must also be a member of the <a href="https://github.com/organizations/vimrails">vimrails organization</a>. If you are not, and you think you should, send an email to <a href="mailto://vimrails-es@googlegroups.com">its mailing list</a></p>
+
+<h2>Clone the vimrails repo and test rvm</h2>
+
+<p>You have to start cloning the <em>source</em> branch of the vimrails repo. Then
+enter the repo and make sure that rvm recognizes the rvmrc file.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git@github.com:vimrails/vimrails.github.com.git -b source
+</span><span class='line'>cd vimrails.github.com
+</span><span class='line'>ruby --version  # Should report Ruby 1.9.2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If <code>ruby --version</code> doesn’t say you’re using Ruby 1.9.2, <a href="http://octopress.org/docs/setup/rvm/">your rvm is not properly configured</a>.</p>
+
+<h2>Bundle</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install bundler
+</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Add yourself to the authors page</h2>
+
+<p>Edit the file <code>source/authors/index.html</code>. Add information about yourself there.</p>
+
+<h2>Test the blog locally</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Execute that and, without cancelling it, visit <a href="http://localhost:4000">http://localhost:4000</a>. You should see the blog running from your machine.</p>
+
+<p>If you are not seeying the authors page correctly, then you have probably made a syntax error. To get the syntax error log, execute:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Prepare for deployment</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will prepare two github branches - publishing will be done through the <code>master</code> branch, while the <code>source</code> will hold the code.</p>
+
+<h2>Commit your source changes and deploy</h2>
+
+<p>Commit the source changes and push them to source (notice: not master!)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -m 'Added matz to the authors page'
+</span><span class='line'>git push origin source</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Publish the changes (this actually pushes to master)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake gen_deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>More information about deployment to github see the <a href="http://octopress.org/docs/deploying/github/">octopress github page</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>http://vimrails.github.com/blog/2011/11/26/the-initial-setup/</loc>
+        <lastmod>2011-11-27T18:32:55+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://vimrails.github.com/blog/2011/11/26/how-to-add-a-post/</loc>
+        <lastmod>2011-11-27T18:32:55+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://vimrails.github.com/authors/</loc>
+        <lastmod>2011-11-27T18:48:21+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://vimrails.github.com/blog/archives/</loc>
+        <lastmod>2011-11-27T18:32:55+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://vimrails.github.com/</loc>
+        <lastmod>2011-11-27T18:32:55+01:00</lastmod>
+    </url>
+</urlset>
