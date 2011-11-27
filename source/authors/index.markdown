@@ -11,14 +11,17 @@ authors:
     url: http://github.com/kikito
     twitter: otikik
     bio: |
-      I like all good things.
+      I'm a ruby on rails developer, although I do other stuff, too.
 
-      Ask me about Lua.
+      I made this blog using [octopress](http://octopress.org).
+
+      Ask me about [Lua](http://www.lua.org).
 
 ---
 
-<ul>
 {% for author in page.authors do %}
-  <li><a href="{{ author.url }}">{{ author.name }}</a></li>
+<h2 id="{{author.id}}"><a href="{{ author.url }}">{{ author.name }} <small>({{ author.id }})</small></a></h2>
+
+{{ author.bio }}
+
 {% endfor %}
-</ul>
