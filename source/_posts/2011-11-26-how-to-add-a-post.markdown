@@ -26,7 +26,7 @@ You should be seeing the blog in [http://localhost:4000](http://localhost:4000).
 There is a possibility that some other people might have done work in the repo before you. Merge them in your current branch with
 
 ```
-git pull origin source --rebase
+git pull --rebase origin source
 ```
 
 (Notice: origin source, not origin master)
@@ -90,7 +90,7 @@ The body can be written in markdown. Here's a short syntax guide:
 
     A paragraph.
 
-    Another parragraph. This one has [a link to google](http://google.com).
+    Another paragraph. This one has [a link to google](http://google.com).
 
     * A list
     * Of
@@ -135,6 +135,6 @@ Same as when deploying the authors page:
 ```
 git commit -m 'Added article'
 git push origin source
-bundle exec rake deploy
+bundle exec rake gen_deploy
 ```
 

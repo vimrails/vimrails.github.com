@@ -27,8 +27,11 @@ You must also be a member of the [vimrails organization](https://github.com/orga
 
 ##Clone the vimrails repo and test rvm
 
+You have to start cloning the *source* branch of the vimrails repo. Then
+enter the repo and make sure that rvm recognizes the rvmrc file.
+
 ```
-git clone git@github.com:vimrails/vimrails.github.com.git
+git clone git@github.com:vimrails/vimrails.github.com.git -b source
 cd vimrails.github.com
 ruby --version  # Should report Ruby 1.9.2
 ```
@@ -81,7 +84,7 @@ git push origin source
 Publish the changes (this actually pushes to master)
 
 ```
-bundle exec rake deploy
+bundle exec rake gen_deploy
 ```
 
 More information about deployment to github see the [octopress github page](http://octopress.org/docs/deploying/github/).
